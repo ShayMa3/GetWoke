@@ -29,6 +29,6 @@ public class MainActivity extends AppCompatActivity implements TimePickerDialog.
     @Override
     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
         TextView timeText = (TextView) findViewById(R.id.time_text);
-        timeText.setText("Hour: " + hourOfDay + " | Minute: " + minute);
+        timeText.setText(getString(R.string.time, hourOfDay, minute));
     }
 }

@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Get Woke</string>
     <string name="open_time_picker">Open Time Picker</string>
-    <string name="time" formatted="true">Hour: %1$d | Minute: %2$d</string>
+    <string name="time" formatted="true">Hour: %1$d || Minute: %2$d</string>
 </resources>

@@ -1,11 +1,14 @@
 <resources>
     <string name="app_name">Get Woke</string>
     <string name="open_time_picker">Set An Alarm</string>
-    <string name="time" formatted="true">Hour: %1$d || Minute: %2$d</string>
+    <string name="time_text" formatted="true">Hour: %1$d || Minute: %2$d</string>
     <string name="title_text">Get Woke</string>
     <string name="no_alarm_text">You have no alarms currently set.</string>
     <string name="wake_up_button">Wake Up</string>
     <string name="title_activity_navigation">NavigationActivity</string>
+    <string name="alarm_title_text">Set An Alarm</string>
+    <string name="profile_title_text">Records</string>
+
     <string name="title_alarms">Alarms</string>
     <string name="title_home">Home</string>
     <string name="title_profile">Profile</string>

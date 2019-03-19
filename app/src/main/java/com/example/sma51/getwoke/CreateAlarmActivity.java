@@ -9,12 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-public class MainActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
+public class CreateAlarmActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_create_alarm);
 
         Button openPicker = (Button) findViewById(R.id.open_picker_button);
         openPicker.setOnClickListener(new View.OnClickListener() {

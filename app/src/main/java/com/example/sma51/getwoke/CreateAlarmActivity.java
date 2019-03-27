@@ -29,6 +29,6 @@ public class CreateAlarmActivity extends AppCompatActivity implements TimePicker
     @Override
     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
         TextView timeText = (TextView) findViewById(R.id.time_text);
-        timeText.setText(getString(R.string.time, hourOfDay, minute));
+        timeText.setText(getString(R.string.time_text, hourOfDay, minute));
     }
 }

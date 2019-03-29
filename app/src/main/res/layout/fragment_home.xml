@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
     <TextView
         android:id="@+id/title_text"
@@ -32,7 +27,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="231dp"
         android:textSize="20sp"
-        android:text="@+string/no_alarm_text" />
+        android:text="@string/no_alarm_text" />
 
     <Button
         android:id="@+id/wake_up_button"
@@ -41,7 +36,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="178dp"
-        android:text="@+string/wake_up_button" />
+        android:text="@string/wake_up_button" />
 
 
-</FrameLayout>
+</RelativeLayout>

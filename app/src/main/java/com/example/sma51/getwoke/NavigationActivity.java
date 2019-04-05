@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 public class NavigationActivity extends AppCompatActivity {
 
-    //private TextView mTextMessage;
     final Fragment fragment1 = new HomeFragment();
     final Fragment fragment2 = new AlarmFragment();
     final Fragment fragment3 = new ProfileFragment();
@@ -30,7 +29,6 @@ public class NavigationActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
@@ -50,19 +48,16 @@ public class NavigationActivity extends AppCompatActivity {
                 case R.id.navigation_home:
                     fm.beginTransaction().hide(active).show(fragment1).commit();
                     active = fragment1;
-                    //mTextMessage.setText(R.string.title_home);
                     return true;
 
                 case R.id.navigation_alarms:
                     fm.beginTransaction().hide(active).show(fragment2).commit();
                     active = fragment2;
-                    //mTextMessage.setText(R.string.title_alarms);
                     return true;
 
                 case R.id.navigation_profile:
                     fm.beginTransaction().hide(active).show(fragment3).commit();
                     active = fragment3;
-                    //mTextMessage.setText(R.string.title_profile);
                     return true;
             }
             return false;

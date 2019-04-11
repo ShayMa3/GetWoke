@@ -15,7 +15,7 @@ import android.widget.TextView;
  */
 public class HomeFragment extends Fragment {
 
-    private TextView noAlarmText;
+    private TextView noAlarmText, alarmTime, alarmTitle;
     private Button wakeButton;
 
     public HomeFragment() {
@@ -30,6 +30,12 @@ public class HomeFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         Button wakeButton = (Button) rootView.findViewById(R.id.wake_up_button);
         TextView noAlarmText = (TextView) rootView.findViewById(R.id.no_alarm_text);
+        TextView alarmTime = (TextView) rootView.findViewById(R.id.alarm_time_text);
+        TextView alarmTitle = (TextView) rootView.findViewById(R.id.alarm_title_text);
+
+        //wakeButton.setOnClickListener(this);
+
+
 
         return rootView;
     }

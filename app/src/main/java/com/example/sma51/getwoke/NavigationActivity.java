@@ -1,5 +1,6 @@
 package com.example.sma51.getwoke;
 
+import android.app.TimePickerDialog;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,8 +12,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
-public class NavigationActivity extends AppCompatActivity {
+public class NavigationActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
     final Fragment fragment1 = new HomeFragment();
     final Fragment fragment2 = new AlarmFragment();
@@ -64,5 +66,11 @@ public class NavigationActivity extends AppCompatActivity {
         }
     };
 
+
+    @Override
+    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
+        TextView timeText = (TextView) findViewById(R.id.time_text);
+        timeText.setText(getString(R.string.time_text, hourOfDay, minute));
+    }
 
 }

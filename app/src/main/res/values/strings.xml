@@ -1,21 +1,36 @@
 <resources>
+
     <string name="app_name">Get Woke</string>
-    <string name="open_time_picker">Set An Alarm</string>
-    <string name="time_text" formatted="true">Hour: %1$d || Minute: %2$d</string>
-    <string name="title_text">Get Woke</string>
-    <string name="no_alarm_text">You have no alarms currently set.</string>
-    <string name="wake_up_button">Wake Up</string>
     <string name="title_activity_navigation">NavigationActivity</string>
-    <string name="alarm_title_text">Set An Alarm</string>
+
+    <!--home fragment-->
+    <string name="title_text">Get Woke</string>
+    <string name="wake_up_button">Wake Up</string>
+    <string name="no_alarm_text">You have no alarms currently set.</string>
+    <string name="alarm_title_text">Alarm Title Here</string>
+    <string name="alarm_time_text">Alarm Time Here</string>
+
+
+    <!--alarm fragment-->
+    <string name="set_alarm_title_text">Set An Alarm</string>
+    <string name="open_time_picker">Select Time</string>
+    <string name="alarm_title_edit_text">Title</string>
+    <string name="time_text" formatted="true">Hour: %1$d || Minute: %2$d</string>
+    <string name="save_alarm_button">Save Alarm</string>
+
+    <!--profile fragment-->
     <string name="profile_title_text">Records</string>
 
-    <string name="title_alarms">Alarms</string>
-    <string name="title_home">Home</string>
-    <string name="title_profile">Profile</string>
-
+    <!--notification activity-->
     <string name="edit_alarm_title">Title</string>
     <string name="edit_alarm_message">Message</string>
     <string name="button_send_notification1">Send on Channel 1</string>
     <string name="button_send_notification2">Send on Channel 2</string>
+
+    <!--navigation bar-->
+    <string name="title_alarms">Alarms</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_home">Home</string>
+
 
 </resources>

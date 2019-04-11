@@ -30,8 +30,28 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="82dp"
-        android:text="@string/alarm_title_text"
+        android:text="@string/set_alarm_title_text"
         android:textColor="@android:color/black"
         android:textSize="40sp" />
+
+    <EditText
+        android:id="@+id/alarm_title_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="179dp"
+        android:ems="10"
+        android:hint="@string/alarm_title_edit_text"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/save_alarm_button"
+        android:layout_width="166dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="88dp"
+        android:text="@string/save_alarm_button" />
 
 </RelativeLayout>

@@ -18,7 +18,7 @@ import android.widget.TimePicker;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AlarmFragment extends Fragment implements TimePickerDialog.OnTimeSetListener{
+public class AlarmFragment extends Fragment{
 
 
     public AlarmFragment() {
@@ -47,10 +47,11 @@ public class AlarmFragment extends Fragment implements TimePickerDialog.OnTimeSe
         return rootView;
     }
 
+    /*
     @Override
     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
         TextView timeText = (TextView) getView().findViewById(R.id.time_text);
         timeText.setText(getString(R.string.time_text, hourOfDay, minute));
     }
-
+    */
 }

@@ -57,14 +57,20 @@ public class AlarmFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.save_alarm_button:
+
+                String title = alarmTitle.getText().toString();
+
+
+                Fragment fragment = new HomeFragment();
                 FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.main_container, HomeFragment);
+                transaction.replace(R.id.main_container, fragment);
+
                 transaction.addToBackStack(null);
-
                 transaction.commit();
-
+                break;
         }
     }
+
 
     /*
     @Override

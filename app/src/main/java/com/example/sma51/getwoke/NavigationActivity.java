@@ -16,7 +16,7 @@ import android.widget.TimePicker;
 
 public class NavigationActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
 
-    final Fragment fragment1 = new HomeFragment();
+    public Fragment fragment1 = new HomeFragment();
     final Fragment fragment2 = new AlarmFragment();
     final Fragment fragment3 = new ProfileFragment();
     final FragmentManager fm = getSupportFragmentManager();

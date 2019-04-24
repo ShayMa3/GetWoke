@@ -13,7 +13,7 @@ import android.widget.TextView;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
     private TextView noAlarmText, alarmTime, alarmTitle;
     private Button wakeButton;
@@ -33,11 +33,15 @@ public class HomeFragment extends Fragment {
         TextView alarmTime = (TextView) rootView.findViewById(R.id.alarm_time_text);
         TextView alarmTitle = (TextView) rootView.findViewById(R.id.alarm_title_text);
 
-        //wakeButton.setOnClickListener(this);
+        wakeButton.setOnClickListener(this);
 
 
 
         return rootView;
     }
 
+    @Override
+    public void onClick(View view) {
+
+    }
 }

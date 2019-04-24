@@ -5,11 +5,15 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.util.Preconditions;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -18,7 +22,10 @@ import android.widget.TimePicker;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class AlarmFragment extends Fragment{
+public class AlarmFragment extends Fragment implements View.OnClickListener {
+
+    private Button saveAlarm;
+    private EditText alarmTitle;
 
 
     public AlarmFragment() {
@@ -33,18 +40,30 @@ public class AlarmFragment extends Fragment{
         // Inflate layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_alarm, container, false);
 
-
+        saveAlarm = (Button) rootView.findViewById(R.id.save_alarm_button);
         Button openPicker = (Button) rootView.findViewById(R.id.open_picker_button);
-        openPicker.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                DialogFragment timePicker = new TimePickerFragment();
-                timePicker.show(getFragmentManager(), "time picker");
-            }
-        });
+        openPicker.setOnClickListener(this);
+        saveAlarm.setOnClickListener(this);
 
         return rootView;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch(view.getId()){
+            case R.id.open_picker_button:
+                DialogFragment timePicker = new TimePickerFragment();
+                timePicker.show(getFragmentManager(), "time picker");
+                break;
+
+            case R.id.save_alarm_button:
+                FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_container, HomeFragment);
+                transaction.addToBackStack(null);
+
+                transaction.commit();
+
+        }
     }
 
     /*

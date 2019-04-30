@@ -8,6 +8,21 @@
     tools:context=".NavigationActivity">
 
 
+    <FrameLayout
+        android:id="@+id/container_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <FrameLayout
+        android:id="@+id/container_alarm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <FrameLayout
+        android:id="@+id/container_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
     <!--appbar-->
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appBarLayout"

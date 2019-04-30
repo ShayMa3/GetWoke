@@ -2,6 +2,7 @@ package com.example.sma51.getwoke;
 
 
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -24,9 +25,13 @@ import android.widget.TimePicker;
  */
 public class AlarmFragment extends Fragment implements View.OnClickListener {
 
-    private Button saveAlarm;
+    private Button buttonSaveAlarm;
     private EditText alarmTitle;
+    private AlarmFragmentListener listener;
 
+    public interface AlarmFragmentListener{
+        void onInputASent(CharSequence input);
+    }
 
     public AlarmFragment() {
         // Required empty public constructor
@@ -40,10 +45,11 @@ public class AlarmFragment extends Fragment implements View.OnClickListener {
         // Inflate layout for this fragment
         final View rootView = inflater.inflate(R.layout.fragment_alarm, container, false);
 
-        saveAlarm = (Button) rootView.findViewById(R.id.save_alarm_button);
+        buttonSaveAlarm = (Button) rootView.findViewById(R.id.save_alarm_button);
         Button openPicker = (Button) rootView.findViewById(R.id.open_picker_button);
+
         openPicker.setOnClickListener(this);
-        saveAlarm.setOnClickListener(this);
+        buttonSaveAlarm.setOnClickListener(this);
 
         return rootView;
     }
@@ -57,13 +63,51 @@ public class AlarmFragment extends Fragment implements View.OnClickListener {
                 break;
 
             case R.id.save_alarm_button:
-                FragmentTransaction transaction = getFragmentManager().beginTransaction();
-                transaction.replace(R.id.main_container, HomeFragment);
-                transaction.addToBackStack(null);
 
-                transaction.commit();
+                String title = alarmTitle.getText().toString();
+                Bundle bundle = new Bundle();
+                bundle.putString("title", title);
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                HomeFragment homeFragment = new HomeFragment();
+                homeFragment.setArguments(bundle);
+                fragmentTransaction.replace(R.id.main_container, homeFragment);
+                fragmentTransaction.commit();
+
+                //CharSequence input = alarmTitle.getText();
+                //listener.onInputASent(input);
+
+                //FragmentTransaction transaction = getFragmentManager().beginTransaction();
+                //transaction.replace(R.id.main_container, HomeFragment);
+                //transaction.addToBackStack(null);
+
+                //transaction.commit();
 
         }
+    }
+
+    public void updateEditText(CharSequence newText){
+        alarmTitle.setText(newText);
+    }
+
+    //when the fragment attaches to the activity
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        //checks if the activity inplements the interface
+        if(context instanceof AlarmFragmentListener){
+            listener = (AlarmFragmentListener) context;
+        }
+        else{
+            throw new RuntimeException(context.toString()
+            + " must implement AlarmFragmentListener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        listener = null;
     }
 
     /*

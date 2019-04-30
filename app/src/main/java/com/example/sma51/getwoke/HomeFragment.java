@@ -32,12 +32,18 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         TextView noAlarmText = (TextView) rootView.findViewById(R.id.no_alarm_text);
         TextView alarmTime = (TextView) rootView.findViewById(R.id.alarm_time_text);
         TextView alarmTitle = (TextView) rootView.findViewById(R.id.alarm_title_text);
-
         wakeButton.setOnClickListener(this);
 
+        Bundle bundle = getArguments();
+        String title = bundle.getString("title");
 
+        alarmTitle.setText(title);
 
         return rootView;
+    }
+
+    public void updateAlarmTitle(CharSequence newTitle){
+        alarmTitle.setText(newTitle);
     }
 
     @Override

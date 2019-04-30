@@ -14,13 +14,13 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
-public class NavigationActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener {
+public class NavigationActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, AlarmFragment.AlarmFragmentListener{
 
-    public Fragment fragment1 = new HomeFragment();
-    final Fragment fragment2 = new AlarmFragment();
-    final Fragment fragment3 = new ProfileFragment();
+    public Fragment fragmentHF = new HomeFragment();
+    final Fragment fragmentAF = new AlarmFragment();
+    final Fragment fragmentPF = new ProfileFragment();
     final FragmentManager fm = getSupportFragmentManager();
-    Fragment active = fragment1;
+    Fragment active = fragmentHF;
 
 
     @Override
@@ -34,12 +34,16 @@ public class NavigationActivity extends AppCompatActivity implements TimePickerD
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        fm.beginTransaction().add(R.id.main_container, fragment3, "3").hide(fragment3).commit();
-        fm.beginTransaction().add(R.id.main_container, fragment2, "2").hide(fragment2).commit();
-        fm.beginTransaction().add(R.id.main_container,fragment1, "1").commit();
+        fm.beginTransaction().add(R.id.main_container, fragmentPF, "3").hide(fragmentPF).commit();
+        fm.beginTransaction().add(R.id.main_container, fragmentAF, "2").hide(fragmentAF).commit();
+        fm.beginTransaction().add(R.id.main_container,fragmentHF, "1").commit();
+        //replace "main_container" with container_home, container_alarm, and container_profile?
     }
 
-
+    @Override
+    public void onInputASent(CharSequence input) {
+        //fragmentHF.updateAlarmTitle(input);
+    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -48,18 +52,18 @@ public class NavigationActivity extends AppCompatActivity implements TimePickerD
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    fm.beginTransaction().hide(active).show(fragment1).commit();
-                    active = fragment1;
+                    fm.beginTransaction().hide(active).show(fragmentHF).commit();
+                    active = fragmentHF;
                     return true;
 
                 case R.id.navigation_alarms:
-                    fm.beginTransaction().hide(active).show(fragment2).commit();
-                    active = fragment2;
+                    fm.beginTransaction().hide(active).show(fragmentAF).commit();
+                    active = fragmentAF;
                     return true;
 
                 case R.id.navigation_profile:
-                    fm.beginTransaction().hide(active).show(fragment3).commit();
-                    active = fragment3;
+                    fm.beginTransaction().hide(active).show(fragmentPF).commit();
+                    active = fragmentPF;
                     return true;
             }
             return false;

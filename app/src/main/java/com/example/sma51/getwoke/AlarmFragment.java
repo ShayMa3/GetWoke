@@ -46,6 +46,7 @@ public class AlarmFragment extends Fragment implements View.OnClickListener {
         final View rootView = inflater.inflate(R.layout.fragment_alarm, container, false);
 
         buttonSaveAlarm = (Button) rootView.findViewById(R.id.save_alarm_button);
+        alarmTitle = (EditText) rootView.findViewById(R.id.alarm_title_edit_text);
         Button openPicker = (Button) rootView.findViewById(R.id.open_picker_button);
 
         openPicker.setOnClickListener(this);

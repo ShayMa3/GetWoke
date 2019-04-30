@@ -35,9 +35,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         wakeButton.setOnClickListener(this);
 
         Bundle bundle = getArguments();
-        String title = bundle.getString("title");
 
-        alarmTitle.setText(title);
+        if (bundle != null) {
+            String title = bundle.getString("title");
+            alarmTitle.setText(title);
+        }
+
+
+
+
+
 
         return rootView;
     }

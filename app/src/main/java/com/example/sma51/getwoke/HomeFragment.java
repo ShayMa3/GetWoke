@@ -39,6 +39,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         if (bundle != null) {
             String title = bundle.getString("title");
             alarmTitle.setText(title);
+            String time = bundle.getString("time");
+            alarmTime.setText(time);
         }
 
 

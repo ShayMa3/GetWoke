@@ -65,13 +65,25 @@ public class AlarmFragment extends Fragment implements View.OnClickListener {
 
             case R.id.save_alarm_button:
 
+                //get alarmTitle from editText
                 String title = alarmTitle.getText().toString();
-                Bundle bundle = new Bundle();
-                bundle.putString("title", title);
+                Bundle bundle2 = new Bundle();
+                bundle2.putString("title", title);
+
+                //get time from timePicker in NavigationActivity
+                Bundle bundle1 = getArguments();
+                if(bundle1 != null){
+                    int hour = getArguments().getInt("hour");
+                    int minute = getArguments().getInt("minute");
+                    String time = "put time here" + hour;
+                    bundle2.putString("time", time);
+                }
+
+
                 FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 HomeFragment homeFragment = new HomeFragment();
-                homeFragment.setArguments(bundle);
+                homeFragment.setArguments(bundle2);
                 fragmentTransaction.replace(R.id.main_container, homeFragment);
                 fragmentTransaction.commit();
 
@@ -95,7 +107,7 @@ public class AlarmFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        //checks if the activity inplements the interface
+        //checks if the activity implements the interface
         if(context instanceof AlarmFragmentListener){
             listener = (AlarmFragmentListener) context;
         }

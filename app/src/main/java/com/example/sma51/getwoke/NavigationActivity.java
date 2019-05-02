@@ -75,6 +75,12 @@ public class NavigationActivity extends AppCompatActivity implements TimePickerD
     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
         TextView timeText = (TextView) findViewById(R.id.time_text);
         timeText.setText(getString(R.string.time_text, hourOfDay, minute));
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("hour", timePicker.getCurrentHour());
+        bundle.putInt("minute", timePicker.getCurrentMinute());
+        HomeFragment hf = new HomeFragment();
+        hf.setArguments(bundle);
     }
 
 }

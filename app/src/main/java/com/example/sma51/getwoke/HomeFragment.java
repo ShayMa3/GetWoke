@@ -15,7 +15,7 @@ import android.widget.TextView;
  */
 public class HomeFragment extends Fragment implements View.OnClickListener {
 
-    private TextView noAlarmText, alarmTime, alarmTitle;
+    private TextView noAlarmText, noAlarmWelcome, yesAlarmWake, yesAlarmDay, alarmTime, alarmTitle;
     private Button wakeButton;
 
     public HomeFragment() {
@@ -30,31 +30,39 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
         Button wakeButton = (Button) rootView.findViewById(R.id.wake_up_button);
         TextView noAlarmText = (TextView) rootView.findViewById(R.id.no_alarm_text);
+        TextView noAlarmWelcome = (TextView) rootView.findViewById(R.id.no_alarm_text_welcome);
+        TextView yesAlarmWake = (TextView) rootView.findViewById(R.id.yes_alarm_text_wake);
+        TextView yesAlarmDay = (TextView) rootView.findViewById(R.id.yes_alarm_text_day);
         TextView alarmTime = (TextView) rootView.findViewById(R.id.alarm_time_text);
         TextView alarmTitle = (TextView) rootView.findViewById(R.id.alarm_title_text);
         wakeButton.setOnClickListener(this);
 
         Bundle bundle = getArguments();
 
+
         //sets new alarm title & time from AlarmFragment
         if (bundle != null) {
             String title = bundle.getString("title");
             alarmTitle.setText(title);
+            alarmTitle.setVisibility(View.VISIBLE);
             String time = bundle.getString("time");
             alarmTime.setText(time);
+            alarmTime.setVisibility(View.VISIBLE);
+
+            //sets description
+            //if an alarm is set, make text say "WAKE UP to start your day"
+            //else, say "Welcome! You have no alarms currently set", make "I'm Awake" button unclickable
+            noAlarmWelcome.setVisibility(View.INVISIBLE);
+            noAlarmText.setVisibility(View.INVISIBLE);
+            yesAlarmWake.setVisibility(View.VISIBLE);
+            yesAlarmDay.setVisibility(View.VISIBLE);
+            wakeButton.setEnabled(true);
+
         }
 
-        setDescription();
+
 
         return rootView;
-    }
-
-    private void setDescription() {
-        //if an alarm is set, make text say WAKE UP to start your day
-        //else, say You have no alarms currently set, make "I'm Awake" button unclickable
-
-        //use textview.hide or whatever
-
     }
 
     public void updateAlarmTitle(CharSequence newTitle){

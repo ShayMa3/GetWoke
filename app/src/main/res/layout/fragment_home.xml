@@ -23,40 +23,67 @@
         android:id="@+id/no_alarm_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="255dp"
+        android:layout_marginBottom="188dp"
         android:text="@string/no_alarm_text"
-        android:textSize="20sp" />
+        android:textSize="22sp" />
 
     <Button
         android:id="@+id/wake_up_button"
-        android:layout_width="wrap_content"
+        android:layout_width="148dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="178dp"
+        android:layout_marginBottom="99dp"
         android:text="@string/wake_up_button" />
 
     <TextView
         android:id="@+id/alarm_time_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/alarm_title_text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="169dp"
+        android:layout_marginBottom="-236dp"
         android:text="@string/alarm_time_text"
-        android:textSize="20sp" />
+        android:textSize="45sp" />
 
     <TextView
         android:id="@+id/alarm_title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/alarm_time_text"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="236dp"
         android:text="@string/alarm_title_text"
-        android:textSize="20sp" />
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/yes_alarm_text_wake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/no_alarm_text"
+        android:layout_centerHorizontal="true"
+        android:text="@string/yes_alarm_text_wake"
+        android:textSize="42sp" />
+
+    <TextView
+        android:id="@+id/yes_alarm_text_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/no_alarm_text"
+        android:layout_centerHorizontal="true"
+        android:text="@string/yes_alarm_text_day"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/no_alarm_text_welcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/no_alarm_text"
+        android:layout_centerHorizontal="true"
+        android:text="@string/no_alarm_text_welcome"
+        android:textSize="42sp" />
 
 
 </RelativeLayout>

@@ -36,6 +36,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         Bundle bundle = getArguments();
 
+        //sets new alarm title & time from AlarmFragment
         if (bundle != null) {
             String title = bundle.getString("title");
             alarmTitle.setText(title);
@@ -43,12 +44,17 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             alarmTime.setText(time);
         }
 
-
-
-
-
+        setDescription();
 
         return rootView;
+    }
+
+    private void setDescription() {
+        //if an alarm is set, make text say WAKE UP to start your day
+        //else, say You have no alarms currently set, make "I'm Awake" button unclickable
+
+        //use textview.hide or whatever
+
     }
 
     public void updateAlarmTitle(CharSequence newTitle){

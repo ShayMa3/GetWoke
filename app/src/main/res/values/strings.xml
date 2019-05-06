@@ -5,15 +5,18 @@
 
     <!--home fragment-->
     <string name="title_text">Get Woke</string>
-    <string name="wake_up_button">Wake Up</string>
+    <string name="wake_up_button">I\'m Awake</string>
+    <string name="no_alarm_text_welcome">Welcome!</string>
     <string name="no_alarm_text">You have no alarms currently set.</string>
+    <string name="yes_alarm_text_wake">WAKE UP</string>
+    <string name="yes_alarm_text_day">to start your day!</string>
     <string name="alarm_title_text">Alarm Title Here</string>
     <string name="alarm_time_text">Alarm Time Here</string>
 
 
     <!--alarm fragment-->
     <string name="set_alarm_title_text">Set An Alarm</string>
-    <string name="open_time_picker">Select Time</string>
+    <string name="open_time_picker">Set Time</string>
     <string name="alarm_title_edit_text">Title</string>
     <string name="time_text" formatted="true">Hour: %1$d || Minute: %2$d</string>
     <string name="save_alarm_button">Save Alarm</string>

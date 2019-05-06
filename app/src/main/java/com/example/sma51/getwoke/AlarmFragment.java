@@ -71,11 +71,11 @@ public class AlarmFragment extends Fragment implements View.OnClickListener {
                 bundle2.putString("title", title);
 
                 //get time from timePicker in NavigationActivity
-                Bundle bundle1 = getArguments();
+                Bundle bundle1 = getArguments(); //move to onCreate?
                 if(bundle1 != null){
                     int hour = getArguments().getInt("hour");
                     int minute = getArguments().getInt("minute");
-                    String time = "put time here" + hour;
+                    String time = hour + ":" + minute;
                     bundle2.putString("time", time);
                 }
 

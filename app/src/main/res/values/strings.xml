@@ -18,6 +18,7 @@
     <string name="set_alarm_title_text">Set An Alarm</string>
     <string name="open_time_picker">Set Time</string>
     <string name="alarm_title_edit_text">Title</string>
+    <string name="time_text_before">Time</string>
     <string name="time_text" formatted="true">Hour: %1$d || Minute: %2$d</string>
     <string name="save_alarm_button">Save Alarm</string>
 

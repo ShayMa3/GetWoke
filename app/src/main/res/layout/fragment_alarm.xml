@@ -10,21 +10,18 @@
         android:id="@+id/open_picker_button"
         android:layout_width="215dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="238dp"
+        android:layout_centerInParent="true"
         android:text="@string/open_time_picker" />
 
     <TextView
         android:id="@+id/time_text"
-        android:layout_width="wrap_content"
+        android:layout_width="216dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="199dp"
-        android:text="@string/time_text"
-        android:layout_centerHorizontal="true"
-        android:textSize="30sp" />
+        android:layout_alignStart="@+id/open_picker_button"
+        android:layout_marginBottom="223dp"
+        android:text="@string/time_text_before"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/alarm_title_text"
@@ -50,7 +47,7 @@
 
     <Button
         android:id="@+id/save_alarm_button"
-        android:layout_width="166dp"
+        android:layout_width="179dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"

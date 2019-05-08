@@ -83,7 +83,7 @@ public class NavigationActivity extends AppCompatActivity implements TimePickerD
         c.set(Calendar.SECOND, 0);
 
         updateTimeText(c);
-        startAlarm(c);
+        //startAlarm(c);
         //first time
         TextView timeText = (TextView) findViewById(R.id.time_text);
         timeText.setText(getString(R.string.time_text, hourOfDay, minute));
@@ -98,6 +98,7 @@ public class NavigationActivity extends AppCompatActivity implements TimePickerD
     public void updateTimeText(Calendar c){
         //displays time from calendar                     //gets only hours and minutes
         String timeText = "" + DateFormat.getTimeInstance(DateFormat.SHORT).format(c);
+        
 
         //pass this string into homefragment to set the alarmTime textview
     }

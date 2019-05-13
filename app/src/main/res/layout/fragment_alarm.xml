@@ -30,6 +30,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="82dp"
+        android:fontFamily="sans-serif-condensed"
         android:text="@string/set_alarm_title_text"
         android:textColor="@android:color/black"
         android:textSize="40sp" />

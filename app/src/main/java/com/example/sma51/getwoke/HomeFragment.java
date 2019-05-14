@@ -22,7 +22,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -38,16 +37,15 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         wakeButton.setOnClickListener(this);
 
         Bundle bundle = getArguments();
-
-
         //sets new alarm title & time from AlarmFragment
         if (bundle != null) {
+            String time = bundle.getString("timeReal");
+            alarmTime.setText(getString(R.string.time_real, 7, 30)); //add AM...
+            alarmTime.setVisibility(View.VISIBLE);
+
             String title = bundle.getString("title");
             alarmTitle.setText(title);
             alarmTitle.setVisibility(View.VISIBLE);
-            String time = bundle.getString("time");
-            alarmTime.setText(time);
-            alarmTime.setVisibility(View.VISIBLE);
 
             //sets description
             //if an alarm is set, make text say "WAKE UP to start your day"
@@ -57,16 +55,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             yesAlarmWake.setVisibility(View.VISIBLE);
             yesAlarmDay.setVisibility(View.VISIBLE);
             wakeButton.setEnabled(true);
-
         }
-
-
-
         return rootView;
-    }
-
-    public void updateAlarmTitle(CharSequence newTitle){
-        alarmTitle.setText(newTitle);
     }
 
     @Override

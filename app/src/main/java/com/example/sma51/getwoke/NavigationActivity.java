@@ -1,6 +1,8 @@
 package com.example.sma51.getwoke;
 
+import android.app.AlarmManager;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,14 +19,13 @@ import android.widget.TimePicker;
 import java.text.DateFormat;
 import java.util.Calendar;
 
-public class NavigationActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener, AlarmFragment.AlarmFragmentListener{
+public class NavigationActivity extends AppCompatActivity implements TimePickerDialog.OnTimeSetListener{
 
     public Fragment fragmentHF = new HomeFragment();
     final Fragment fragmentAF = new AlarmFragment();
     final Fragment fragmentPF = new ProfileFragment();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragmentHF;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +42,6 @@ public class NavigationActivity extends AppCompatActivity implements TimePickerD
         fm.beginTransaction().add(R.id.main_container, fragmentAF, "2").hide(fragmentAF).commit();
         fm.beginTransaction().add(R.id.main_container,fragmentHF, "1").commit();
         //replace "main_container" with container_home, container_alarm, and container_profile?
-    }
-
-    @Override
-    public void onInputASent(CharSequence input) {
-        //fragmentHF.updateAlarmTitle(input);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -76,31 +72,39 @@ public class NavigationActivity extends AppCompatActivity implements TimePickerD
 
     @Override
     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
-
         Calendar c = Calendar.getInstance();
         c.set(Calendar.HOUR_OF_DAY, hourOfDay);
         c.set(Calendar.MINUTE, minute);
         c.set(Calendar.SECOND, 0);
 
-        updateTimeText(c);
+        //updateTimeText(c);
         //startAlarm(c);
         //first time
         TextView timeText = (TextView) findViewById(R.id.time_text);
         timeText.setText(getString(R.string.time_text, hourOfDay, minute));
+        String timeReal = "" + hourOfDay + ": " + minute;
+
 
         Bundle bundle = new Bundle();
-        bundle.putInt("hour", timePicker.getCurrentHour());
-        bundle.putInt("minute", timePicker.getCurrentMinute());
-        HomeFragment hf = new HomeFragment();
-        hf.setArguments(bundle);
+        bundle.putString("timeReal1", timeReal);
+        AlarmFragment af = new AlarmFragment();
+        af.setArguments(bundle);
     }
 
     public void updateTimeText(Calendar c){
         //displays time from calendar                     //gets only hours and minutes
-        String timeText = "" + DateFormat.getTimeInstance(DateFormat.SHORT).format(c);
-        
+        String timeTextHome = "Time: ";
+        //timeTextHome += DateFormat.getTimeInstance(DateFormat.SHORT).format(c);
+        Bundle bundleTime = new Bundle();
+        bundleTime.putString("alarm time", timeTextHome);
+        HomeFragment hf = new HomeFragment();
+        hf.setArguments(bundleTime);
 
         //pass this string into homefragment to set the alarmTime textview
+    }
+
+    public void startAlarm(Calendar c){
+        //AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
     }
 
 }

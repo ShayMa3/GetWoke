@@ -20,6 +20,7 @@
     <string name="alarm_title_edit_text">Title</string>
     <string name="time_text_before">Time</string>
     <string name="time_text" formatted="true">Hour: %1$d || Minute: %2$d</string>
+    <string name="time_real" formatted="true">%1$d: %2$d</string>
     <string name="save_alarm_button">Save Alarm</string>
 
     <!--profile fragment-->
